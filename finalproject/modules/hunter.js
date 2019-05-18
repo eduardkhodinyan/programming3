@@ -1,4 +1,6 @@
-class Hunter {
+var random = require("./random.js");
+var matrix = require('./matrix.js');
+module.exports = class Hunter {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -263,4 +265,3 @@ class Hunter {
         }
     }
 }
-module.exports('hunter.js');

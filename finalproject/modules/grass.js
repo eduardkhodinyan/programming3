@@ -1,4 +1,6 @@
-class Grass {
+var random = require("./random.js");
+var matrix = require('./matrix.js');
+module.exports = class Grass {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -44,5 +46,4 @@ class Grass {
     }
 }
 
-module.exports('grass.js');
 

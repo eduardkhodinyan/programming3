@@ -1,4 +1,6 @@
-class God {
+var random = require("./random.js");
+var matrix = require('./matrix.js');
+module.exports = class God {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -227,4 +229,3 @@ var empty = random(this.chooseplace(0));
 }
 
 
-module.exports('god.js')
