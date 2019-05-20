@@ -42,7 +42,7 @@ function matrixGenerator(matrixSize, grass, grassEater, grassEaterEater, waterAr
       matrix[customY][customX] = 5;
    }
 }
-matrixGenerator(10, 5, 1);
+matrixGenerator(10, 20, 11,10,1,3);
 //! Creating MATRIX -- END
 
 
@@ -58,7 +58,7 @@ var God = require('./modules/God');
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io');
+var io = require('socket.io')(server);
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
