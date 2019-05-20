@@ -4,8 +4,46 @@
  gishatichArr = [];
  hunterArr = [];
  godArr = [];
+ matrix = []; 
 
 //! Setting global arrays  -- END
+//Matrix Start
+let random = require('./modules/random');
+function matrixGenerator(matrixSize, grass, grassEater, grassEaterEater, waterArr, fireArr) {
+   for (let i = 0; i < matrixSize; i++) {
+      matrix[i] = [];
+      for (let o = 0; o < matrixSize; o++) {
+         matrix[i][o] = 0;
+      }
+   }
+   for (let i = 0; i < grass; i++) {
+      let customX = Math.floor(random(matrixSize)); // 0 - 39
+      let customY = Math.floor(random(matrixSize));
+      matrix[customY][customX] = 1;
+   }
+   for (let i = 0; i < grassEater; i++) {
+      let customX = Math.floor(random(matrixSize));
+      let customY = Math.floor(random(matrixSize));
+      matrix[customY][customX] = 2;
+   }
+   for (let i = 0; i < grassEaterEater; i++) {
+      let customX = Math.floor(random(matrixSize));
+      let customY = Math.floor(random(matrixSize));
+      matrix[customY][customX] = 3;
+   }
+   for (let i = 0; i < waterArr; i++) {
+      let customX = Math.floor(random(matrixSize));
+      let customY = Math.floor(random(matrixSize));
+      matrix[customY][customX] = 4;
+   }
+   for (let i = 0; i < fireArr; i++) {
+      let customX = Math.floor(random(matrixSize));
+      let customY = Math.floor(random(matrixSize));
+      matrix[customY][customX] = 5;
+   }
+}
+matrixGenerator(10, 5, 1);
+//! Creating MATRIX -- END
 
 
 
@@ -15,7 +53,6 @@ var Xotaker = require('./modules/Xotaker');
 var Gishatich = require('./modules/Gishatich');
 var Hunter = require('./modules/Hunter');
 var God = require('./modules/God');
-var matrix = require('./matrix');
 //! Requiring modules  --  END
 //server code start
 var express = require('express');

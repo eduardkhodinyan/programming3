@@ -1,5 +1,5 @@
 var random = require("./random.js");
-var matrix = require('./matrix.js');
+
 module.exports = class God {
     constructor(x, y) {
         this.x = x;

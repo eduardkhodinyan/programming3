@@ -18,7 +18,6 @@ function setup() {
         background('#acacac');
         //! Draw grassCount and grassEaterCount to HTML (use DOM objects to update information, yes, and use .innerText <- function)
 
-        function createcreature() {
             for (var y = 0; y < matrix.length; y++) {
                 for (var x = 0; x < matrix[y].length; x++) {
                     if (matrix[y][x] == 1) {
@@ -45,6 +44,6 @@ function setup() {
                 }
             }
 
-        }
+        
     }
 }
