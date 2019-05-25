@@ -208,6 +208,7 @@ revive(){
 	  		matrix[newY][newX] = 3
 	  		var gi = new Gishatich(newX, newY)
              gishatichArr.push(gi)
+             grassEaterEaterHashiv++
              this.energy-=2
 	 	}
 	 

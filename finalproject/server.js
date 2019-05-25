@@ -5,8 +5,11 @@
  hunterArr = [];
  godArr = [];
  matrix = []; 
-grassHashiv = 0;
-grassEaterHashiv = 0;
+ grassHashiv = 0;
+ grassEaterHashiv = 0;
+ grassEaterEaterHashiv = 0;
+ hunterHashiv = 0;
+ godHashiv = 0
 //! Setting global arrays  -- END
 //Matrix Start
 let random = require('./modules/random');
@@ -42,10 +45,32 @@ function matrixGenerator(matrixSize, grass, grassEater, grassEaterEater, waterAr
       let customY = Math.floor(random(matrixSize));
       matrix[customY][customX] = 5;
    }
-   grassHashiv=grass;
-   grassEaterHashiv = grassEater;
+   for (let i = 0; i < matrixSize; i++) {
+    for (let o = 0; o < matrixSize; o++) {
+        if(matrix[i][o] == 1){
+            grassHashiv++
+        }
+       else if(matrix[i][o] == 2){
+        grassEaterHashiv++
+       }
+       else if(matrix[i][o] == 3){
+        grassEaterEaterHashiv++
+       }
+       else if(matrix[i][o] == 4){
+        hunterHashiv++
+       }
+       else if(matrix[i][o] == 5){
+        godHashiv++
+       }
+    }
+ }
+ console.log(grassHashiv)
+ console.log(grassEaterHashiv)
+ console.log(grassEaterEaterHashiv)
+ console.log(hunterHashiv)
+ console.log(godHashiv)
 }
-matrixGenerator(10, 20, 11,10,1,3);
+matrixGenerator(10, 30,30,20,1,3);
 //! Creating MATRIX -- END
 
 
@@ -67,7 +92,7 @@ app.use(express.static("."));
 app.get('/', function (req, res) {
    res.redirect('index.html');
 });
-server.listen(3000);
+server.listen(8888);
 // server code end
 
 
@@ -140,7 +165,10 @@ function game() {
    let sendData = {
       matrix: matrix,
       grassCounter: grassHashiv,
-      grassEaterCounter: grassEaterHashiv
+      grassEaterCounter: grassEaterHashiv,
+      grassEaterEaterCounter:grassEaterEaterHashiv,
+      hunterCounter: hunterHashiv,
+      godCounter: godHashiv
    }
 
    //! Send data over the socket to clients who listens "data"

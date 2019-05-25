@@ -234,25 +234,10 @@ module.exports = class Hunter {
             matrix[newY][newX] = 4;
             var hu = new Hunter(newX, newY);
             hunterArr.push(hu);
+            hunterHashiv++
             this.energy-=25
         }
-        else{
-        	var found = random(this.chooseCell(1));
-        	if(found && this.energy >=35){
-        	 var newX = found[0]
-            var newY = found[1]
-            for (var i in grassArr) {
-                if (grassArr[i].x == newX && grassArr[i].y == newY) {
-                    grassArr.splice(i, 1)
-                }
-                
-            }
-            matrix[newY][newX] = 4
-            var hu = new Hunter(newX, newY);
-            hunterArr.push(hu);
-            this.energy-=25
-        	}
-        }
+        
     }
    
     die() {
