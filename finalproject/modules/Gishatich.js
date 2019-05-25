@@ -1,5 +1,5 @@
 var random = require("./random.js");
-
+var Grass = require("./grass")
 module.exports = class Gishatich {
     constructor(x, y) {
         this.x = x;

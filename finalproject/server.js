@@ -5,7 +5,8 @@
  hunterArr = [];
  godArr = [];
  matrix = []; 
-
+grassHashiv = 0;
+grassEaterHashiv = 0;
 //! Setting global arrays  -- END
 //Matrix Start
 let random = require('./modules/random');
@@ -41,6 +42,8 @@ function matrixGenerator(matrixSize, grass, grassEater, grassEaterEater, waterAr
       let customY = Math.floor(random(matrixSize));
       matrix[customY][customX] = 5;
    }
+   grassHashiv=grass;
+   grassEaterHashiv = grassEater;
 }
 matrixGenerator(10, 20, 11,10,1,3);
 //! Creating MATRIX -- END
@@ -74,10 +77,12 @@ function creatingObjects() {
          if (matrix[y][x] == 1) {
             var gr = new Grass(x, y)
             grassArr.push(gr)
+            
          }
          else if (matrix[y][x] == 2) {
             var xt = new Xotaker(x, y)
             xotakerArr.push(xt)
+            
          }
          else if (matrix[y][x] == 3) {
             var gi = new Gishatich(x, y)
@@ -133,7 +138,9 @@ function game() {
    }
    //! Object to send
    let sendData = {
-      matrix: matrix
+      matrix: matrix,
+      grassCounter: grassHashiv,
+      grassEaterCounter: grassEaterHashiv
    }
 
    //! Send data over the socket to clients who listens "data"

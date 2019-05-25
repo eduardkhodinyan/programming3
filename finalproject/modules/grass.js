@@ -34,6 +34,7 @@ module.exports = class Grass {
     }
 
     mult() {
+       
         var empty = random(this.chooseCell(0))
         this.multiply++
         if (empty && this.multiply > 3) {
@@ -42,6 +43,7 @@ module.exports = class Grass {
             matrix[newY][newX] = 1
             var gr = new Grass(newX, newY)
             grassArr.push(gr)
+            grassHashiv++;
         }
     }
 }

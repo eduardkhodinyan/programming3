@@ -49,12 +49,15 @@ module.exports = class Xotaker {
 
     mult() {
         var empty = random(this.chooseCell(0))
+        
         if (empty && this.energy > 10) {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 2
             var xt = new Xotaker(newX, newY)
             xotakerArr.push(xt)
+            grassEaterHashiv++
+
         }
     }
 

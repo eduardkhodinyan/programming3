@@ -1,5 +1,7 @@
 var random = require("./random.js");
-
+var Grass = require('./Grass');
+var Xotaker = require('./Xotaker');
+var Gishatich = require('./Gishatich');
 module.exports = class God {
     constructor(x, y) {
         this.x = x;
@@ -188,17 +190,19 @@ revive(){
             matrix[newY][newX] = 1
             var gr = new Grass(newX, newY)
             grassArr.push(gr)
+            grassHashiv++;
             this.energy-=2
         }
-	 else if(empty && xotakerArr.length<=10){
+	if(empty && xotakerArr.length<=10){
 	 			var newX = empty[0]
             	var newY = empty[1]
 	 	    	matrix[newY][newX] = 2
 	 	 		var xt = new Xotaker(newX, newY)
-            	xotakerArr.push(xt)
+                xotakerArr.push(xt)
+                grassEaterHashiv++
             	this.energy-=2
             }
-	  	else if(empty && gishatichArr.length<=5){
+	  	 if(empty && gishatichArr.length<=5){
 	  		var newX = empty[0]
             var newY = empty[1]
 	  		matrix[newY][newX] = 3

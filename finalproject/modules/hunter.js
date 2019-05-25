@@ -1,10 +1,12 @@
 var random = require("./random.js");
-
+var Grass = require('./Grass');
+var Xotaker = require('./Xotaker');
+var Gishatich = require('./Gishatich');
 module.exports = class Hunter {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 15;
+        this.energy = 5;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
