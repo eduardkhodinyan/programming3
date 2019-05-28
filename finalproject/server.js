@@ -5,7 +5,7 @@
  hunterArr = [];
  godArr = [];
  matrix = []; 
- grassHashiv = 0;
+grassHashiv = grassArr.length;
  grassEaterHashiv = 0;
  grassEaterEaterHashiv = 0;
  hunterHashiv = 0;
@@ -21,54 +21,54 @@ function matrixGenerator(matrixSize, grass, grassEater, grassEaterEater, waterAr
       }
    }
    for (let i = 0; i < grass; i++) {
-      let customX = Math.floor(random(matrixSize)); // 0 - 39
-      let customY = Math.floor(random(matrixSize));
+      let customX = Math.floor(Math.random()*matrixSize); 
+      let customY = Math.floor(Math.random() * matrixSize);
       matrix[customY][customX] = 1;
    }
    for (let i = 0; i < grassEater; i++) {
-      let customX = Math.floor(random(matrixSize));
-      let customY = Math.floor(random(matrixSize));
+      let customX = Math.floor(Math.random()*matrixSize);
+      let customY = Math.floor(Math.random()*matrixSize);
       matrix[customY][customX] = 2;
    }
    for (let i = 0; i < grassEaterEater; i++) {
-      let customX = Math.floor(random(matrixSize));
-      let customY = Math.floor(random(matrixSize));
+      let customX = Math.floor(Math.random()*matrixSize);
+      let customY = Math.floor(Math.random()*matrixSize);
       matrix[customY][customX] = 3;
    }
    for (let i = 0; i < waterArr; i++) {
-      let customX = Math.floor(random(matrixSize));
-      let customY = Math.floor(random(matrixSize));
+      let customX = Math.floor(Math.random()*matrixSize);
+      let customY = Math.floor(Math.random()*matrixSize);
       matrix[customY][customX] = 4;
    }
    for (let i = 0; i < fireArr; i++) {
-      let customX = Math.floor(random(matrixSize));
-      let customY = Math.floor(random(matrixSize));
+      let customX = Math.floor(Math.random()*matrixSize);
+      let customY = Math.floor(Math.random()*matrixSize);
       matrix[customY][customX] = 5;
    }
-   for (let i = 0; i < matrixSize; i++) {
-    for (let o = 0; o < matrixSize; o++) {
-        if(matrix[i][o] == 1){
-            grassHashiv++
-        }
-       else if(matrix[i][o] == 2){
-        grassEaterHashiv++
-       }
-       else if(matrix[i][o] == 3){
-        grassEaterEaterHashiv++
-       }
-       else if(matrix[i][o] == 4){
-        hunterHashiv++
-       }
-       else if(matrix[i][o] == 5){
-        godHashiv++
-       }
-    }
- }
- console.log(grassHashiv)
- console.log(grassEaterHashiv)
- console.log(grassEaterEaterHashiv)
- console.log(hunterHashiv)
- console.log(godHashiv)
+//    for (let i = 0; i < matrixSize; i++) {
+//     for (let o = 0; o < matrixSize; o++) {
+//         if(matrix[i][o] == 1){
+//             grassHashiv++
+//         }
+//        else if(matrix[i][o] == 2){
+//         grassEaterHashiv++
+//        }
+//        else if(matrix[i][o] == 3){
+//         grassEaterEaterHashiv++
+//        }
+//        else if(matrix[i][o] == 4){
+//         hunterHashiv++
+//        }
+//        else if(matrix[i][o] == 5){
+//         godHashiv++
+//        }
+//     }
+//  }
+   // grassHashiv = grass
+   grassEaterHashiv = grassEater
+   grassEaterEaterHashiv = grassEaterEater
+   hunterHashiv = waterArr
+   godHashiv = fireArr
 }
 matrixGenerator(10, 30,30,20,1,3);
 //! Creating MATRIX -- END
@@ -92,7 +92,7 @@ app.use(express.static("."));
 app.get('/', function (req, res) {
    res.redirect('index.html');
 });
-server.listen(8888);
+server.listen(3000);
 // server code end
 
 
